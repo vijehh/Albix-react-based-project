@@ -1,0 +1,38 @@
+@import '../variables';
+
+.header{
+    position: relative;
+    display: flex;
+    background-color: $color-primary;
+    height: 90vh;
+    justify-content: center;
+    align-items: center;
+    transition: all 1s;
+    overflow: hidden;
+}
+
+.heading{
+    .heading__primary{
+
+        &--main{
+            display: block;
+            background-image: linear-gradient(to right bottom, $color-primary-highlight, $color-primary-accent);
+            background-size: cover;
+            background-position: center;
+            -webkit-background-clip: text;
+            color: transparent;
+            font-family: 'Cuprum', sans-serif;
+            font-size: 30rem;
+            letter-spacing: 2rem;
+        }
+        &--sub{
+            display: block;
+            font-family: inherit;
+            font-size: 3rem;
+            font-weight: 500;
+            letter-spacing: 0.5rem;
+        }
+    }
+
+    
+}

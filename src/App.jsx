@@ -1,8 +1,16 @@
-
+import { BrowserRouter, Route, Routes} from 'react-router-dom' 
 import './App.css'
+import Home from './pages/Home'
 
 function App() {
-  return <h1>HI</h1>
+  return <>
+    <BrowserRouter>
+      <Routes>
+        <Route index element={<Home />} />
+        
+      </Routes>
+    </BrowserRouter>
+  </>
 }
 
 export default App

@@ -1,0 +1,67 @@
+@import 'variables';
+
+@import url('https://fonts.googleapis.com/css2?family=Cuprum:ital,wght@0,400..700;1,400..700&family=Space+Mono:ital,wght@0,400;0,700;1,400;1,700&display=swap');
+
+
+
+* {
+
+  margin: 0;
+  padding: 0;
+
+}
+*,
+*::before,
+*::after{
+  box-sizing: inherit;
+}
+
+html{
+  font-family: 'Space Mono', serif;
+  box-sizing: border-box;
+  font-size: 46.8%;
+}
+
+body{
+  background-color: $color-primary;
+  transition: all 1s;
+}
+
+.btn{
+  padding: 1.7rem 4rem;
+  // display: flex;
+  // align-items: center;
+  border: none;
+  border-radius: 10rem;
+  cursor: pointer;
+  transition: all 0.2s;
+  text-transform: uppercase;
+
+  &:hover{
+      transform: scale(1.05);
+  }
+
+  &:focus{
+      outline: none;
+  }
+}
+
+.u-text-align-center{
+  text-align: center;
+}
+
+.u-margin-center{
+  margin: 0 auto;
+}
+
+.hidden{
+  display: none !important;
+}
+
+.contract-height{
+  height: 0rem !important;
+}
+
+.contract-width{
+  width: 0 !important;
+}
