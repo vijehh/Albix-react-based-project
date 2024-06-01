@@ -1,9 +1,13 @@
+
 import styles from './Header.module.scss';
 
+
 function Header() {
+
     return (
+
         <div>
-            <header className={styles.header}>
+            <header className={`${styles.header}`}>
                 <div className={`u-text-align-center`}>
                     <h1 className={`${styles.heading__primary} ${styles.heading}`}>
                         <span className={styles[`heading__primary--main`]}>ALBIX</span>

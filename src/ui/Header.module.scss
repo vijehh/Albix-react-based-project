@@ -19,6 +19,7 @@
             background-image: linear-gradient(to right bottom, $color-primary-highlight, $color-primary-accent);
             background-size: cover;
             background-position: center;
+            background-clip: text;
             -webkit-background-clip: text;
             color: transparent;
             font-family: 'Cuprum', sans-serif;
