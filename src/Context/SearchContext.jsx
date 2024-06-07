@@ -9,6 +9,8 @@ const SearchContext = createContext();
 function SearchProvider({ children }) {
     const [query, setQuery] = useState('')
     const [results, setResults] = useState();
+    // const [tag, setTag] = useState();
+    const [tagRes, setTagRes] = useState();
 
     async function searchQuery(){
         const response = await fetch(`${URL}${API_KEY}&q=${query}`);
@@ -18,12 +20,21 @@ function SearchProvider({ children }) {
         
     }
 
+    async function searchTag(tag){
+        const response = await fetch(`${URL}${API_KEY}&q=${tag}`);
+        const imgData = await response.json();
+        setTagRes(imgData.hits);
+        // console.log(results);
+    }
+
     return (
         <SearchContext.Provider value={{
             query,
             setQuery,
             searchQuery,
-            results
+            results,
+            tagRes,
+            searchTag
         }}>
             {children}
         </SearchContext.Provider>

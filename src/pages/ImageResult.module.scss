@@ -1,0 +1,30 @@
+.searchview{
+    position: relative;
+    display: flex;
+    // background-color: $color-primary-accent;
+    // background-color: $color-primary;
+    height: 90vh;
+    justify-content: center;
+    align-items: center;
+    transition: all 1s;
+    overflow: hidden;
+
+    &__container{
+        // background-color: grey;
+    }
+
+    &__container, &__sizer{
+        // background-color: $color-primary;
+        height: 90vh;
+        max-width: 100%;
+    }
+    &__sizer{
+        // height: 10rem;
+        display: none;
+    }
+    &__image{
+        height: 100%;
+        max-width: 100%;
+        object-fit: cover;
+    }
+}

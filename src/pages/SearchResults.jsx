@@ -2,16 +2,17 @@ import { useContext } from 'react'
 import styles from './SearchResults.module.scss'
 import { SearchContext } from '../Context/SearchContext'
 import Results from '../ui/Results';
+import Masonry from 'react-masonry-css';
+import Navbar from '../ui/Navbar';
+import { Outlet } from 'react-router-dom';
 
 function SearchResults() {
     const {results} = useContext(SearchContext);
-    console.log(results);
-    return (
-        <section>
-            <div className={styles.img__container}>
-                {results ? results.map((result, i)=><Results result={result} key={i} />) : ''}
-            </div>
-        </section>
+    // console.log(results);
+    return (<>
+        <Navbar />
+        <Outlet />
+        </>
     )
 }
 

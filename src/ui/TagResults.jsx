@@ -1,8 +1,7 @@
-import styles from './Results.module.scss'
+import styles from './TagResults.module.scss'
 import { Link } from 'react-router-dom';
 
-function Results({result}) {
-    // console.log(result);
+function TagResults({result}) {
     return (
         <figure className={styles.img__wrapper}>
         <div className={styles.img__sizer}></div>
@@ -25,4 +24,4 @@ function Results({result}) {
     )
 }
 
-export default Results
+export default TagResults
