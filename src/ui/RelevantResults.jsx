@@ -9,17 +9,39 @@ const URL = 'https://pixabay.com/api/?key=';
 
 function RelevantResults({currTag}) {
     // const {tagRes} = useContext(SearchContext);
-    const [results, setResults] = useState();
+    const [results, setResults] = useState([]);
+    const [page, setPage] = useState(1);
+
+    useEffect(()=>{
+        setPage(1);
+        setResults([]);
+    },[currTag])
 
     useEffect(()=>{
         const fetchData = async()=>{
-            const response = await fetch(`${URL}${API_KEY}&q=${currTag}`);
+            const response = await fetch(`${URL}${API_KEY}&q=${currTag}&page=${page}`);
             const imgData = await response.json();
-            setResults(imgData.hits);
+            setResults(prev=>[...prev, ...imgData.hits]);
         }
 
         fetchData();
-    })
+    },[page, currTag])
+
+    useEffect(()=>{
+
+        const handleScroll = ()=>{
+            // console.log('page: ',page);
+            if(window.innerHeight + document.documentElement.scrollTop + 1 >= document.documentElement.scrollHeight) {
+                setPage(prev=>prev+1);
+            }
+        };
+
+        const debouncedHandleScroll = debounce(handleScroll, 200);
+
+        window.addEventListener('scroll', debouncedHandleScroll);
+
+        return window.removeEventListener('scroll', handleScroll);
+    }, [])
 
     const breakpoints = {
         default: 4,
@@ -27,7 +49,7 @@ function RelevantResults({currTag}) {
         700: 1
     }
 
-    if(!results) return <div>Loading....</div>
+    // if(!results) return <div>Loading....</div>
 
     return (
         
@@ -46,3 +68,18 @@ function RelevantResults({currTag}) {
 }
 
 export default RelevantResults
+
+
+function debounce(func, wait) {
+    let timeout;
+    return function () {
+        const context = this;
+        const args = arguments;
+        const later = function () {
+            timeout = null;
+            func.apply(context, args);
+        };
+        clearTimeout(timeout);
+        timeout = setTimeout(later, wait);
+    };
+}

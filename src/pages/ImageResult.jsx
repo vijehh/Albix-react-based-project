@@ -27,7 +27,7 @@ function ImageResult() {
             }
 
             catch(error){
-                console.error('smth happened')
+                console.error('smth happened', error)
             }
 
             finally{

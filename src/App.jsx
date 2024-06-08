@@ -2,10 +2,10 @@ import { BrowserRouter, Route, Routes} from 'react-router-dom'
 import './App.css'
 import Home from './pages/Home'
 import SearchResults from './pages/SearchResults'
-import { SearchProvider } from './Context/SearchContext'
+// import { SearchProvider } from './Context/SearchContext'
 import QueryResults from './pages/QueryResults'
 import ImageResult from './pages/ImageResult'
-import Navbar from './ui/Navbar'
+// import Navbar from './ui/Navbar'
 
 function App() {
   return <>

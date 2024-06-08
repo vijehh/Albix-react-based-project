@@ -1,13 +1,13 @@
-import { useContext, useEffect, useState } from 'react'
-import styles from './SearchResults.module.scss'
-import { SearchContext } from '../Context/SearchContext'
-import Results from '../ui/Results';
-import Masonry from 'react-masonry-css';
+import { useEffect, useState } from 'react'
+// import styles from './SearchResults.module.scss'
+// import { SearchContext } from '../Context/SearchContext'
+// import Results from '../ui/Results';
+// import Masonry from 'react-masonry-css';
 import Navbar from '../ui/Navbar';
 import { Outlet, useParams } from 'react-router-dom';
 
-const API_KEY = '42857731-1529682eb076fe57ea890d75d';
-const URL = 'https://pixabay.com/api/?key=';
+// const API_KEY = '42857731-1529682eb076fe57ea890d75d';
+// const URL = 'https://pixabay.com/api/?key=';
 
 function SearchResults() {
     // const {results} = useContext(SearchContext);
