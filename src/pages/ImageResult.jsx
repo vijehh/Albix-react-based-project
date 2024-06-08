@@ -1,15 +1,16 @@
-import { useContext, useEffect, useState } from "react";
-import { useOutletContext, useParams } from "react-router-dom"
-import { SearchContext } from "../Context/SearchContext";
+import { useEffect, useState } from "react";
+import { useOutletContext } from "react-router-dom"
+// import { SearchContext } from "../Context/SearchContext";
 import styles from './ImageResult.module.scss'
 import TagButtons from "../ui/TagButtons";
-import RelevantResults from "../ui/RelevantResults";
+// import RelevantResults from "../ui/RelevantResults";
 
 const API_KEY = '42857731-1529682eb076fe57ea890d75d';
 const URL = 'https://pixabay.com/api/?key=';
 
 
 function ImageResult() {
+    // eslint-disable-next-line no-unused-vars
     const [_, id] = useOutletContext();
     console.log(id);
     const [isLoading, setIsLoading] = useState(false);
@@ -56,8 +57,15 @@ function ImageResult() {
     if(isLoading) return <div>loading....</div>
 
     return (<>
-        <div className={styles.searchview__sizer}></div>
-        <img className="search-view__image image--main" src={result.largeImageURL} alt="smth"></img>
+        <div className={styles.searchview}>
+
+        <div className={styles.searchview__sizer}>
+            <img className={`${styles.searchview__image} image--main`} src={result.largeImageURL} alt="smth"></img>
+            <div className={styles.searchview__overlay}>
+                smth
+            </div>
+        </div>
+        </div>
         <TagButtons result={result} />
         {/* <RelevantResults /> */}
         

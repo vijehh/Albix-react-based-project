@@ -1,0 +1,22 @@
+.tagButton{
+    padding: 2rem 6rem;
+    border-radius: 2rem;
+    background-color: transparent;
+    color: white;
+    // border: none;
+    opacity: 0.75;
+    text-transform: capitalize;
+    border-color: white;
+}
+
+.buttons{
+    padding-top: 2rem;
+    display: flex;
+    justify-content: center;
+    gap: 20rem;
+
+}
+
+.selected{
+    background-color: rgba(256,256,256,0.3)
+}

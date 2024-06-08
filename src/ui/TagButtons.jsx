@@ -1,5 +1,6 @@
-import { useContext, useState } from "react"
-import { SearchContext } from "../Context/SearchContext"
+import { useState } from "react"
+// import { SearchContext } from "../Context/SearchContext"
+import styles from './TagButtons.module.scss'
 import RelevantResults from "./RelevantResults";
 
 function TagButtons({result}) {
@@ -9,13 +10,16 @@ function TagButtons({result}) {
     
     // console.log(tags);
 
-    return (
-        <div>
-            <button onClick={()=>setCurrTag(tags[0])}>{tags[0]}</button>
-            <button onClick={()=>setCurrTag(tags[1])}>{tags[1]}</button>
-            <button onClick={()=>setCurrTag(tags[2])}>{tags[2]}</button>
-            <RelevantResults currTag={currTag} />
+    return (<>
+        <div className={styles.buttons}>
+            
+            <button className={`${styles.tagButton} ${currTag == tags[0] ? styles.selected : ''}`} onClick={()=>setCurrTag(tags[0])}>{tags[0]}</button>
+            <button className={`${styles.tagButton} ${currTag == tags[1] ? styles.selected : ''}`} onClick={()=>setCurrTag(tags[1])}>{tags[1]}</button>
+            <button className={`${styles.tagButton} ${currTag == tags[2] ? styles.selected : ''}`} onClick={()=>setCurrTag(tags[2])}>{tags[2]}</button>
+            
         </div>
+        <RelevantResults currTag={currTag} />
+        </>
     )
 }
 

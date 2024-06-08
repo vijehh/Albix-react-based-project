@@ -1,5 +1,5 @@
-import { useContext, useEffect, useState } from "react"
-import { SearchContext } from "../Context/SearchContext"
+import { useEffect, useState } from "react"
+// import { SearchContext } from "../Context/SearchContext"
 import Masonry from "react-masonry-css";
 // import Results from "./Results";
 import TagResults from "./TagResults";

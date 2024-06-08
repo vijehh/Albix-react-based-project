@@ -1,7 +1,7 @@
-import { useContext, useState } from 'react';
-import { useNavigate, Navigate } from 'react-router-dom';
+import { useState } from 'react';
+import { useNavigate} from 'react-router-dom';
 import styles from './Navbar.module.scss';
-import { SearchContext } from '../Context/SearchContext';
+// import { SearchContext } from '../Context/SearchContext';
 
 function Navbar() {
     const navigate = useNavigate();

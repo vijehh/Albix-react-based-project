@@ -1,0 +1,67 @@
+.img{
+
+    &__container{
+        // background-color: $color-primary;
+        width: 95%;
+        height: 100%;
+        margin: 0 auto;
+        padding-top: 4rem;
+    }
+}
+
+.utility{
+    padding: 6rem 0;
+    display: flex;
+    // flex-direction: row;
+    justify-content: center;
+    gap: 16rem;
+    // background-color: grey;
+
+    &Buttons{
+        padding: 2rem 4rem;
+        border-radius: 2rem;
+        background-color: transparent;
+        color: white;
+        // border: 1rem solid;
+        border-color: white;
+    }
+}
+
+@keyframes expand {
+    from {
+        opacity: 0;
+        // height: 0;
+        transform: scaleY(0);
+    }
+
+    to{
+        opacity: 1;
+        transform: scaleY(1);
+        // height: 100%;
+    }
+}
+
+.expandedOptions{
+    display: flex;
+    justify-content: space-around;
+    animation: expand 0.3s ease-in-out;
+    width: 100%;
+}
+
+.subButton{
+    padding: 2rem 4rem;
+    border-radius: 2rem;
+    background-color: transparent;
+    border: none;
+    color: white;
+    // border: 1rem solid;
+    // border-color: white;
+
+    &:hover{
+        background-color: rgba(256,256,256,0.3);
+    }
+}
+
+.selected{
+    background-color: rgba(256,256,256,0.3)
+}

@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react'
-// import styles from './SearchResults.module.scss'
+import styles from './QueryResults.module.scss'
 // import { SearchContext } from '../Context/SearchContext'
 import Results from '../ui/Results';
 import Masonry from 'react-masonry-css';
@@ -16,6 +16,8 @@ function QueryResults() {
     const [results, setResults] = useState([]);
     // const [isLoading, setIsLoading] = useState(false);
     const [page, setPage] = useState(1);
+    const [hoveredButton, setHoveredButton] = useState('Type');
+    const [showOptions, setShowOptions] = useState(false);
 
     useEffect(()=>{
         setQuery(queryNav);
@@ -55,6 +57,15 @@ function QueryResults() {
         return window.removeEventListener('scroll', handleScroll);
     }, [])
     // console.log(results);
+
+    function handleMouseEnter(){
+        setShowOptions(true);
+    }
+
+    function handleMouseLeave(){
+        setShowOptions(false);
+        setHoveredButton(null);
+    }
     
 
     function handleClick(e){
@@ -72,8 +83,35 @@ function QueryResults() {
 
     return (<>
         <section>
-            
+            <div className={styles.optionsBox} onMouseEnter={handleMouseEnter} onMouseLeave={handleMouseLeave}>
 
+            
+            <div className={styles.utility}>
+                <button className={`${styles.utilityButtons} ${hoveredButton==='Type' ? styles.selected : ''}`} onMouseEnter={()=>setHoveredButton('Type')} >Type</button>
+                <button className={`${styles.utilityButtons} ${hoveredButton==='Color' ? styles.selected : ''}`} onMouseEnter={()=>setHoveredButton('Color')} >Color</button>
+                <button className={styles.utilityButtons}>Editors Choice</button>
+                <button className={styles.utilityButtons}>Safesearch</button>
+
+                
+            </div>
+
+                {showOptions && (hoveredButton === "Type") && <div className={styles.expandedOptions}>
+                    <button className={styles.subButton}>Smth</button>
+                    <button className={styles.subButton}>Smth</button>
+                    <button className={styles.subButton}>Smth</button>
+                    <button className={styles.subButton}>Smth</button>
+                </div> }
+
+                {showOptions && (hoveredButton === "Color") && <div className={styles.expandedOptions}>
+                    <button className={styles.subButton}>Smth</button>
+                    <button className={styles.subButton}>Smth</button>
+                    <button className={styles.subButton}>Smth</button>
+                    <button className={styles.subButton}>Smth</button>
+                    <button className={styles.subButton}>Smth</button>
+                    <button className={styles.subButton}>Smth</button>
+                </div> }
+
+            </div>
             <Masonry 
             breakpointCols={breakpoints}
             className="my-masonry-grid"

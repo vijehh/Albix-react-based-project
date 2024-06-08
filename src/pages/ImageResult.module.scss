@@ -3,14 +3,14 @@
     display: flex;
     // background-color: $color-primary-accent;
     // background-color: $color-primary;
-    height: 90vh;
+    height: 75vh;
     justify-content: center;
     align-items: center;
     transition: all 1s;
     overflow: hidden;
 
     &__container{
-        // background-color: grey;
+        background-color: grey;
     }
 
     &__container, &__sizer{
@@ -19,12 +19,36 @@
         max-width: 100%;
     }
     &__sizer{
-        // height: 10rem;
-        display: none;
+        // height: 70rem;
+        // display: flex;
+        // justify-content: center;
     }
     &__image{
         height: 100%;
         max-width: 100%;
         object-fit: cover;
+    }
+
+    &__overlay{
+        transition: all 1s;
+        color: white;
+        font-size: 10rem;
+        // height: 50%;
+        width: 20%;
+        position: absolute;
+        top: 0;
+        left: 0;
+        bottom: 0;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        // background-color: rgba(128,128,128,0.45);
+        background-image: linear-gradient(to right, rgba(128,128,128,1) 10%, transparent);
+        opacity: 0;
+        
+    }
+
+    &:hover .searchview__overlay{
+        opacity: 1;
     }
 }
