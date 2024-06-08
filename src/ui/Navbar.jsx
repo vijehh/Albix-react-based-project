@@ -1,17 +1,18 @@
-import { useContext } from 'react';
+import { useContext, useState } from 'react';
 import { useNavigate, Navigate } from 'react-router-dom';
 import styles from './Navbar.module.scss';
 import { SearchContext } from '../Context/SearchContext';
 
 function Navbar() {
     const navigate = useNavigate();
-    const {query, setQuery, searchQuery} = useContext(SearchContext);
+    // const {query, setQuery, searchQuery} = useContext(SearchContext);
+    const [query, setQuery] = useState('');
 
     
 
     function handleSearch(e){
         e.preventDefault();
-        searchQuery();
+        // searchQuery();
         navigate(`/search/query/${query}`);
 
     }
