@@ -29,7 +29,7 @@ function Navbar() {
         </form>
         <ul className={styles.nav__links}> 
             <li className={styles.nav__item}><a href="/" className={`${styles.nav__link}`}>Home</a></li>
-            <li className={styles.nav__item}><a href="/#about" className={`${styles.nav__link}`}>About</a></li>
+            <li className={styles.nav__item}><a href="/about" className={`${styles.nav__link}`}>About</a></li>
             {/* <li class="nav__item"><a href="#" class="nav__link">Showcase</a></li> */}
         </ul>
     </nav>

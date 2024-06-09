@@ -5,6 +5,7 @@ import SearchResults from './pages/SearchResults'
 // import { SearchProvider } from './Context/SearchContext'
 import QueryResults from './pages/QueryResults'
 import ImageResult from './pages/ImageResult'
+import About from './ui/About'
 // import Footer from './ui/Footer'
 // import Navbar from './ui/Navbar'
 
@@ -20,6 +21,7 @@ function App() {
             <Route path='id/:idNav' element={<ImageResult />} />
             
           </Route>
+          <Route path='/about' element={<About />} />
         </Routes>
       </BrowserRouter>
       {/* <Footer /> */}

@@ -24,7 +24,10 @@
     
     &__links{
         display: flex;
-        // justify-content: space-around;
+        // justify-content: space-between;
+        // gap: 1rem;
+        font-weight: 100;
+        // font-size: 8rem;
         align-items: center;
         list-style: none;
     }

@@ -6,6 +6,13 @@
     justify-content: space-between;
     align-items: center;
 
+    padding: 0 4rem;
+
+}
+
+.footerMain{
+    background-color: #EEEEEE;
+
 }
 
 .logoBox{
@@ -46,4 +53,22 @@
     top: -1rem;
     left: -5rem;
     font-size: 2em;
+}
+
+
+.links{
+    padding-bottom: 6rem;
+    display: flex;
+    justify-content: center;
+    gap: 4rem;
+}
+
+.link{
+
+    &:link,&:visited{
+        text-decoration: none;
+        font-size: 1.7rem;
+        color: inherit;
+        display: block;
+    }
 }

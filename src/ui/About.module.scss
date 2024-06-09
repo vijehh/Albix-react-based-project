@@ -1,5 +1,21 @@
 .about{
     color: white;
     height: 90vh;
-    font-size: 10rem;
+    // font-size: 5rem;
+    display: flex;
+    // justify-content: space-between;
+    // align-items: center;
+    flex-direction: column;
+    padding: 8rem 16rem;
+
+    h1{
+        padding-top: 4rem;
+        font-size: 4rem;
+        font-weight: 100;
+    }
+
+    p{
+        padding: 2rem 0;
+        font-size: 3rem;
+    }
 }
