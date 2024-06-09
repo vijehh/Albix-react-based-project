@@ -1,3 +1,5 @@
+import About from "../ui/About"
+import Footer from "../ui/Footer"
 import Header from "../ui/Header"
 import Navbar from "../ui/Navbar"
 
@@ -8,6 +10,8 @@ function Home() {
         <div>
             <Navbar />
             <Header />
+            {/* <About /> */}
+            <Footer />
         </div>
     )
 }

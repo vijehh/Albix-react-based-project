@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { useNavigate} from 'react-router-dom';
+import { Link, useNavigate} from 'react-router-dom';
 import styles from './Navbar.module.scss';
 // import { SearchContext } from '../Context/SearchContext';
 
@@ -14,6 +14,7 @@ function Navbar() {
         e.preventDefault();
         // searchQuery();
         navigate(`/search/query/${query}`);
+        setQuery('');
 
     }
 
@@ -27,9 +28,9 @@ function Navbar() {
             <button className={`btn ${styles.search__btn}`}>Search</button>
         </form>
         <ul className={styles.nav__links}> 
-            <li className={styles.nav__item}><a href="#" className={`${styles.nav__link}`}>Home</a></li>
-            {/* <li class="nav__item"><a href="#" class="nav__link">About</a></li>
-            <li class="nav__item"><a href="#" class="nav__link">Showcase</a></li> */}
+            <li className={styles.nav__item}><a href="/" className={`${styles.nav__link}`}>Home</a></li>
+            <li className={styles.nav__item}><a href="/#about" className={`${styles.nav__link}`}>About</a></li>
+            {/* <li class="nav__item"><a href="#" class="nav__link">Showcase</a></li> */}
         </ul>
     </nav>
         </div>

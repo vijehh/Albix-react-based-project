@@ -5,6 +5,7 @@ import SearchResults from './pages/SearchResults'
 // import { SearchProvider } from './Context/SearchContext'
 import QueryResults from './pages/QueryResults'
 import ImageResult from './pages/ImageResult'
+// import Footer from './ui/Footer'
 // import Navbar from './ui/Navbar'
 
 function App() {
@@ -21,6 +22,7 @@ function App() {
           </Route>
         </Routes>
       </BrowserRouter>
+      {/* <Footer /> */}
     
   </>
 }
