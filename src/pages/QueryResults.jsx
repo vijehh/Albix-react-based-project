@@ -16,8 +16,13 @@ function QueryResults() {
     const [results, setResults] = useState([]);
     // const [isLoading, setIsLoading] = useState(false);
     const [page, setPage] = useState(1);
-    const [hoveredButton, setHoveredButton] = useState('Type');
+    const [hoveredButton, setHoveredButton] = useState(null);
     const [showOptions, setShowOptions] = useState(false);
+    const [type, setType] = useState('all');
+    const [sort, setSort] = useState('popular');
+    const [editors, setEditors] = useState(false);
+    const [safeS, setSafeS] = useState(false);
+    // const [color, setColor] = useState('')
 
     useEffect(()=>{
         setQuery(queryNav);
@@ -29,7 +34,7 @@ function QueryResults() {
         // setIsLoading(true);
         const fetchData = async () =>{
             if(!query) return;
-            const response = await fetch(`${URL}${API_KEY}&q=${query}&page=${page}`);
+            const response = await fetch(`${URL}${API_KEY}&q=${query}&page=${page}&sort=${sort}&image_type=${type}&editors_choice${editors}&safesearch=${safeS}`);
             const imgData = await response.json();
             setResults((prev)=>[...prev, ...imgData.hits]);
             // setResults(imgData.hits);
@@ -37,7 +42,7 @@ function QueryResults() {
         }
 
         fetchData();
-    }, [query,page]);
+    }, [query,page,editors,safeS,type,sort]);
 
     
 
@@ -67,6 +72,10 @@ function QueryResults() {
         setHoveredButton(null);
     }
     
+    function handleReset(){
+        setPage(1);
+        setResults([]);
+    }
 
     function handleClick(e){
         e.preventDefault();
@@ -83,32 +92,28 @@ function QueryResults() {
 
     return (<>
         <section>
-            <div className={styles.optionsBox} onMouseEnter={handleMouseEnter} onMouseLeave={handleMouseLeave}>
+            <div className={styles.optionsBox} onMouseEnter={handleMouseEnter} onMouseLeave={handleMouseLeave} onClick={handleReset}>
 
             
             <div className={styles.utility}>
+                <button className={`${styles.utilityButtons} ${hoveredButton==='Sort' ? styles.selected : ''}`} onMouseEnter={()=>setHoveredButton('Sort')} >Sort</button>
                 <button className={`${styles.utilityButtons} ${hoveredButton==='Type' ? styles.selected : ''}`} onMouseEnter={()=>setHoveredButton('Type')} >Type</button>
-                <button className={`${styles.utilityButtons} ${hoveredButton==='Color' ? styles.selected : ''}`} onMouseEnter={()=>setHoveredButton('Color')} >Color</button>
-                <button className={styles.utilityButtons}>Editors Choice</button>
-                <button className={styles.utilityButtons}>Safesearch</button>
+                <button className={`${styles.utilityButtons} ${editors ? styles.selected : ''}`} onClick={()=>setEditors((prev)=>!prev)}>Editors Choice</button>
+                <button className={`${styles.utilityButtons} ${safeS ? styles.selected : ''}`} onClick={()=>setSafeS((prev)=>!prev)}>Safesearch</button>
 
                 
             </div>
 
-                {showOptions && (hoveredButton === "Type") && <div className={styles.expandedOptions}>
-                    <button className={styles.subButton}>Smth</button>
-                    <button className={styles.subButton}>Smth</button>
-                    <button className={styles.subButton}>Smth</button>
-                    <button className={styles.subButton}>Smth</button>
+                {showOptions && (hoveredButton === "Sort") && <div className={styles.expandedOptions}>
+                    <button className={styles.subButton} onClick={()=>setSort('popular')}>Popular</button>
+                    <button className={styles.subButton} onClick={()=>setSort('latest')}>Latest</button>
                 </div> }
 
-                {showOptions && (hoveredButton === "Color") && <div className={styles.expandedOptions}>
-                    <button className={styles.subButton}>Smth</button>
-                    <button className={styles.subButton}>Smth</button>
-                    <button className={styles.subButton}>Smth</button>
-                    <button className={styles.subButton}>Smth</button>
-                    <button className={styles.subButton}>Smth</button>
-                    <button className={styles.subButton}>Smth</button>
+                {showOptions && (hoveredButton === "Type") && <div className={styles.expandedOptions}>
+                    <button className={styles.subButton} onClick={()=>setType('all')}>All</button>
+                    <button className={styles.subButton} onClick={()=>setType('photo')}>Photo</button>
+                    <button className={styles.subButton} onClick={()=>setType('illustration')}>Illustration</button>
+                    <button className={styles.subButton} onClick={()=>setType('vector')}>Vector</button>
                 </div> }
 
             </div>
